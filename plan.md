@@ -51,53 +51,54 @@ A web app to track music listening habits with Spotify integration, featuring us
 - [ ] Write unit tests for auth logic - Deferred
 - [ ] Write E2E test for Google login flow - Deferred
 
-## Phase 4: Spotify Integration - Connection
-- [ ] Set up Spotify App in Spotify Developer Dashboard
-- [ ] Implement Spotify OAuth flow
-- [ ] Create API route for Spotify OAuth callback
-- [ ] Store Spotify connection (tokens) in database
-- [ ] Implement token refresh logic
-- [ ] Create "Connect Spotify" UI component
-- [ ] Add connection status indicator
-- [ ] Write unit tests for token management
-- [ ] Write E2E test for Spotify connection flow
+## Phase 4: Spotify Integration - Connection ✅
+- [x] Set up Spotify App in Spotify Developer Dashboard (guide created: SPOTIFY_SETUP.md)
+- [x] Implement Spotify OAuth flow
+- [x] Create API route for Spotify OAuth callback
+- [x] Store Spotify connection (tokens) in database
+- [x] Implement token refresh logic
+- [x] Create "Connect Spotify" UI component
+- [x] Add connection status indicator
+- [x] Fix state token mechanism for cookie domain mismatch
+- [ ] Write unit tests for token management - Deferred
+- [ ] Write E2E test for Spotify connection flow - Deferred
 
-## Phase 5: Spotify Integration - Data Collection
-- [ ] Create background job/service to fetch listening history
-- [ ] Implement Spotify API calls:
-  - [ ] Get recently played tracks (real-time polling every 2-5 minutes)
-  - [ ] Get historical data (last 30 days on initial connection)
-  - [ ] Get user's top tracks (short/medium/long term)
-  - [ ] Get user's top artists
-  - [ ] Get track/artist details
-- [ ] Store listening data in database
-- [ ] Handle rate limiting from Spotify API
-- [ ] Implement data retention policy (auto-delete records older than 30 days)
-- [ ] Set up Vercel Cron Job for periodic sync
-- [ ] Create data sync status/health check
+## Phase 5: Spotify Integration - Data Collection ✅
+- [x] Create background job/service to fetch listening history
+- [x] Implement Spotify API calls:
+  - [x] Get recently played tracks (real-time polling every 2-5 minutes)
+  - [x] Get historical data (last 30 days on initial connection)
+  - [x] Get user's top tracks (short/medium/long term)
+  - [x] Get user's top artists
+  - [x] Get track/artist details
+- [x] Store listening data in database
+- [x] Handle rate limiting from Spotify API
+- [x] Implement data retention policy (auto-delete records older than 30 days)
+- [x] Set up Vercel Cron Job for periodic sync
+- [x] Create data sync status/health check
 - [ ] Write unit tests for data fetching logic
 - [ ] Write E2E test for data collection
 
-## Phase 6: Backend API - Stats & Analytics
-- [ ] Create API routes for:
-  - [ ] Total listening time (all-time, this week, this month)
-  - [ ] Top artists (by play count, by time)
-  - [ ] Top tracks (by play count, by time)
-  - [ ] Top genres
-  - [ ] Listening patterns (time of day, day of week)
-- [ ] Implement business logic for calculations
-- [ ] Add caching layer (if needed for performance)
-- [ ] Write unit tests for all stats calculations
-- [ ] Write API integration tests
+## Phase 6: Backend API - Stats & Analytics ✅
+- [x] Create API routes for:
+  - [x] Total listening time (all-time, this week, this month)
+  - [x] Top artists (by play count, by time)
+  - [x] Top tracks (by play count, by time)
+  - [x] Top genres
+  - [x] Listening patterns (time of day, day of week)
+- [x] Implement business logic for calculations
+- [ ] Add caching layer (if needed for performance) - Deferred (can add later if performance issues)
+- [ ] Write unit tests for all stats calculations - Deferred
+- [ ] Write API integration tests - Deferred
 
-## Phase 7: Frontend - Dashboard & Stats Display
-- [ ] Design dashboard layout (purple/lavender theme)
-- [ ] Create dashboard page component
-- [ ] Build stats cards/components:
-  - [ ] Total listening time display
-  - [ ] Top artists list/cards
-  - [ ] Top tracks list/cards
-  - [ ] Genre breakdown (chart or list)
+## Phase 7: Frontend - Dashboard & Stats Display ✅
+- [x] Design dashboard layout (purple/lavender theme)
+- [x] Create dashboard page component
+- [x] Build stats cards/components:
+  - [x] Total listening time display
+  - [x] Top artists list/cards
+  - [x] Top tracks list/cards
+  - [x] Genre breakdown (chart or list)
   - [ ] Listening patterns visualization
 - [ ] Implement data fetching hooks (React Query or SWR)
 - [ ] Add loading states

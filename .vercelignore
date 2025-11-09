@@ -1,0 +1,7 @@
+# Files to ignore during Vercel deployment
+.certs/
+server.js
+docker-compose.yml
+*.md
+!.vercel/README.md
+

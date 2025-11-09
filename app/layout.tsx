@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Nav } from "@/components/nav";
 
 export const metadata: Metadata = {
   title: "Muse - Music Listening Tracker",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="antialiased">
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }

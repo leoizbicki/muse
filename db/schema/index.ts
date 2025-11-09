@@ -33,22 +33,33 @@ export const users = pgTable(
 
 // NextAuth.js tables - required for authentication
 // Accounts table - stores OAuth provider accounts
-export const accounts = pgTable("accounts", {
-  id: text("id").primaryKey(),
-  userId: text("user_id")
-    .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
-  type: text("type").notNull(), // "oauth" | "email" | "credentials"
-  provider: text("provider").notNull(), // "google" | "spotify" | etc.
-  providerAccountId: text("provider_account_id").notNull(),
-  refresh_token: text("refresh_token"),
-  access_token: text("access_token"),
-  expires_at: integer("expires_at"),
-  token_type: text("token_type"),
-  scope: text("scope"),
-  id_token: text("id_token"),
-  session_state: text("session_state"),
-});
+export const accounts = pgTable(
+  "accounts",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    type: text("type").notNull(), // "oauth" | "email" | "credentials"
+    provider: text("provider").notNull(), // "google" | "spotify" | etc.
+    providerAccountId: text("provider_account_id").notNull(),
+    refresh_token: text("refresh_token"),
+    access_token: text("access_token"),
+    expires_at: integer("expires_at"),
+    token_type: text("token_type"),
+    scope: text("scope"),
+    id_token: text("id_token"),
+    session_state: text("session_state"),
+  },
+  (table) => ({
+    // Unique constraint: one account per provider + providerAccountId combination
+    // This prevents duplicate OAuth accounts and helps with account linking
+    providerAccountUnique: unique("accounts_provider_account_unique").on(
+      table.provider,
+      table.providerAccountId
+    ),
+  })
+);
 
 // Sessions table - stores user sessions
 // Note: sessionToken must be the primary key for NextAuth compatibility
